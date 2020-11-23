@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  height: 3.5rem;
+  padding: 0.8em 1em;
+  background: #202020;
+  color: white;
+  border-bottom: solid 2px #353535;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+  text-decoration: none;
+  color: white;
+}
+
+.input {
+  display: inline-block;
+  margin-left: 33em;
+  font-size: 1.1rem;
+  flex-basis: 24%;
+  color: #c8c8c8;
+  outline: 0;
+  background-color: #121212;
+  padding-left: 0.6em;
+  border: solid 1px #313131;
+}
+
+.input:focus {
+  border: solid 1px #1c62b9;
+}
+
+.button {
+  background-color: #313131;
+  outline: 0;
+  width: 4.5em;
+  border: none;
+}
+
+.buttonImg {
+  padding: 0.5em 0.2em;
+  height: 100%;
+}
+
+.img {
+  width: 1.5em;
+}
+
+.title {
+  margin-left: 0.5em;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+}

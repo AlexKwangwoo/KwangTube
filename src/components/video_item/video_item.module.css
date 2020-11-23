@@ -1,0 +1,60 @@
+.container {
+  padding: 0.5em;
+  border: none;
+  text-decoration: none;
+}
+
+.container.grid {
+  width: 20%;
+  height: 100%;
+}
+
+.container.list {
+  width: 50%;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid lightgray;
+  /* 여기를 꺼야함 */
+  /* box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53); */
+  cursor: pointer;
+  transition: transform 250ms ease-in;
+}
+
+.video:hover {
+  transform: scale(1.02);
+}
+
+.li {
+  display: block;
+  width: 50%;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
+.metadata {
+  margin-left: 0.2em;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  color: white;
+}
+.channel {
+  margin: 0;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.channel {
+  font-size: 0.6rem;
+}
