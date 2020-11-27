@@ -24,24 +24,30 @@ const SearchHeader = memo(({ onSearch }) => {
   };
   return (
     <header className={styles.header}>
-      <Link className={styles.logo} to="/">
+      <Link
+        className={styles.logo}
+        to="/"
+        onClick={() => window.location.reload()}
+      >
         <img className={styles.img} src="/images/logo.png" alt="logo" />
-        <h1 className={styles.title}>Youtube</h1>
+        <h1 className={styles.title}>Kwangtube</h1>
       </Link>
-      <input
-        ref={inputRef}
-        className={styles.input}
-        type="search"
-        placeholder="Search..."
-        onKeyPress={onKeyPress}
-      />
-      <button className={styles.button} onClick={onClick}>
-        <img
-          className={styles.buttonImg}
-          src="/images/search.png"
-          alt="search"
+      <div className={styles.inputBox}>
+        <input
+          ref={inputRef}
+          className={styles.input}
+          type="search"
+          placeholder="Search..."
+          onKeyPress={onKeyPress}
         />
-      </button>
+        <button className={styles.button} onClick={onClick}>
+          <img
+            className={styles.buttonImg}
+            src="/images/search.png"
+            alt="search"
+          />
+        </button>
+      </div>
     </header>
   );
 });

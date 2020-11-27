@@ -8,6 +8,9 @@ import VideoList from "./components/video_list/video_list";
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [channel, setChannel] = useState(null);
+  const [replies, setReplies] = useState(null);
+  const [searchOn, setSearchOn] = useState(false);
   console.log(youtube);
   const selectVideo = (video) => {
     setSelectedVideo(video);
@@ -24,26 +27,37 @@ function App({ youtube }) {
           setVideos(videos);
           setSelectedVideo(null);
         });
+      setSearchOn(true);
     },
     [youtube]
   ); //써야할때만 쓰면된다.. 메모리에 저장이되기에..
 
-  // useEffect(() => {
-  //   // window.location.reload();
-  // });
-
-  // const youtubeLoading = ()=>{
-  //   youtube //
-  //     .mostPopular()
-  //     .then((videos) => setVideos(videos));
-  // }
+  useEffect(() => {
+    console.log(selectedVideo);
+    if (selectedVideo) {
+      youtube //
+        .channel(selectedVideo.snippet.channelId)
+        .then((response) => setChannel(response));
+    }
+  }, [youtube, selectedVideo]);
 
   useEffect(() => {
     youtube //
       .mostPopular()
-      .then((videos) => setVideos(videos));
+      .then((videos) => {
+        console.log(videos);
+        setVideos(videos);
+      });
   }, [youtube]);
-  // console.log(videos);
+
+  useEffect(() => {
+    if (selectedVideo) {
+      youtube //
+        .replies(selectedVideo.id)
+        .then((response) => setReplies(response));
+    }
+  }, [youtube, selectedVideo]);
+
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -58,6 +72,7 @@ function App({ youtube }) {
               )} */}
               <div className={styles.list_basic}>
                 <VideoList
+                  searchOn={searchOn}
                   videos={videos}
                   onVideoClick={selectVideo}
                   display={selectedVideo ? "list" : "grid"}
@@ -69,13 +84,20 @@ function App({ youtube }) {
           <Route path="/video_detail/:video">
             <SearchHeader onSearch={search} />
             <section className={styles.content}>
-              {selectedVideo && (
+              {selectedVideo && channel && replies && (
                 <div className={styles.detail}>
-                  <VideoDetail video={selectedVideo} />
+                  <VideoDetail
+                    video={selectedVideo}
+                    channel={channel}
+                    replies={replies}
+                    youtube={youtube}
+                  />
                 </div>
               )}
               <div className={styles.list}>
+                <div className={styles.topText}>NEXT VIDEO</div>
                 <VideoList
+                  searchOn={searchOn}
                   videos={videos}
                   onVideoClick={selectVideo}
                   display={selectedVideo ? "list" : "grid"}

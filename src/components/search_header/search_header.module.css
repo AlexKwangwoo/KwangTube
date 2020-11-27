@@ -10,21 +10,30 @@
 .logo {
   display: flex;
   align-items: center;
-  margin-right: 1em;
+  margin-left: 3em;
   text-decoration: none;
   color: white;
 }
 
 .input {
   display: inline-block;
-  margin-left: 33em;
-  font-size: 1.1rem;
-  flex-basis: 24%;
+  font-size: 0.8rem;
+  flex-basis: 40%;
   color: #c8c8c8;
   outline: 0;
   background-color: #121212;
   padding-left: 0.6em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   border: solid 1px #313131;
+}
+
+.inputBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 170px;
 }
 
 .input:focus {
@@ -35,12 +44,14 @@
   background-color: #313131;
   outline: 0;
   width: 4.5em;
+  height: 2.22em;
   border: none;
 }
 
 .buttonImg {
   padding: 0.5em 0.2em;
-  height: 100%;
+  height: 25px;
+  margin-top: -1px;
 }
 
 .img {

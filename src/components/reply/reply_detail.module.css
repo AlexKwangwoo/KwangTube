@@ -1,0 +1,26 @@
+.thumbnail {
+  width: 40px;
+  border-radius: 20px;
+}
+
+.replyBox {
+  display: flex;
+  font-size: 14px;
+  color: white;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.userName {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.date {
+  color: #aaaaaa;
+  margin-left: 5px;
+}
+
+.meta {
+  margin-left: 10px;
+}

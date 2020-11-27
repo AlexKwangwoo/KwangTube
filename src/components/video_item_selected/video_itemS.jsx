@@ -1,10 +1,10 @@
 import React, { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { trimText, formatDate } from "../../utils";
-import styles from "./video_item.module.css";
-import VideoItemDetail from "./video_item_detail.jsx";
+import styles from "./video_itemS.module.css";
+import VideoItemSDetail from "./video_itemS_detail.jsx";
 
-const VideoItem = memo(
+const VideoItemS = memo(
   ({
     video,
     video: { snippet, statistics },
@@ -13,8 +13,6 @@ const VideoItem = memo(
     youtube,
     searchOn,
   }) => {
-    console.log("서치온오프?");
-    console.log(searchOn);
     const displayType = display === "list" ? styles.list : styles.grid;
     const [channel, setChannel] = useState(null);
     // const response = youtube //
@@ -26,9 +24,7 @@ const VideoItem = memo(
       youtube //
         .searchVideoDetail(video.id)
         .then((response) => setSearhedVideo(response[0]));
-      console.log("searhedVideo");
-      console.log(searhedVideo);
-    }, [searchOn, youtube, video.id]);
+    }, [youtube, video.id]);
 
     useEffect(() => {
       if (searchOn === false) {
@@ -40,14 +36,13 @@ const VideoItem = memo(
           youtube //
             .channel(searhedVideo.snippet.channelId)
             .then((response) => setChannel(response));
-        console.log("서치된거채널변경!");
       }
-    }, [youtube, snippet.channelId, searhedVideo]);
+    }, [youtube, snippet.channelId]);
 
     return searchOn ? (
       searhedVideo && (
         <Link
-          to={`/video_detail/${video.id}`}
+          to={`/video_detail/${searhedVideo.id}`}
           className={`${styles.container} ${displayType}`}
           onClick={() => onVideoClick(searhedVideo)}
         >
@@ -58,19 +53,16 @@ const VideoItem = memo(
               alt="video thumbnail"
             />
             <div className={`${styles.metadata} ${displayType}`}>
-              <div className={`${styles.thumb} ${displayType}`}>
-                {channel && <VideoItemDetail channel={channel} />}
-              </div>
               <div>
                 <p className={`${styles.title} ${displayType}`}>
-                  {trimText(searhedVideo.snippet.title, 50)}
+                  {trimText(searhedVideo.snippet.title, 45)}
                 </p>
                 <p className={`${styles.channel} ${displayType}`}>
                   {searhedVideo.snippet.channelTitle}
                 </p>
                 <p className={`${styles.static} ${displayType}`}>
                   Views {searhedVideo.statistics.viewCount}{" "}
-                  {formatDate(snippet.publishedAt)}
+                  {formatDate(searhedVideo.snippet.publishedAt)}
                 </p>
               </div>
             </div>
@@ -90,12 +82,9 @@ const VideoItem = memo(
             alt="video thumbnail"
           />
           <div className={`${styles.metadata} ${displayType}`}>
-            <div className={`${styles.thumb} ${displayType}`}>
-              {channel && <VideoItemDetail channel={channel} />}
-            </div>
             <div>
               <p className={`${styles.title} ${displayType}`}>
-                {trimText(snippet.title, 50)}
+                {trimText(snippet.title, 45)}
               </p>
               <p className={`${styles.channel} ${displayType}`}>
                 {snippet.channelTitle}
@@ -111,4 +100,4 @@ const VideoItem = memo(
   }
 );
 
-export default VideoItem;
+export default VideoItemS;

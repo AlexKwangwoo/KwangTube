@@ -1,0 +1,41 @@
+.container {
+  padding-top: 0.3em;
+  text-decoration: none;
+}
+
+.video {
+  display: flex;
+  width: 500px;
+  margin-left: 5%;
+  margin-bottom: 10px;
+}
+
+.thumbnail {
+  width: 35%;
+  height: 35%;
+}
+
+.title {
+  width: 80%;
+  margin: 0;
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+}
+.channel {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #a7aaa0;
+}
+
+.static {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #a7aaa0;
+  text-decoration-line: none;
+}
+
+.metadata {
+  width: 60%;
+  margin-left: 10px;
+}

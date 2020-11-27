@@ -18,12 +18,24 @@ class Youtube {
     return response.data.items;
   }
 
+  async replies(id) {
+    const response = await this.youtube.get("commentThreads", {
+      params: {
+        part: "snippet,replies",
+        moderationStatus: "published",
+        videoId: id,
+        maxResults: 18,
+      },
+    });
+    return response.data.items;
+  }
+
   async mostPopular() {
     const response = await this.youtube.get("videos", {
       params: {
         part: "snippet,statistics",
         chart: "mostPopular",
-        maxResults: 42,
+        maxResults: 20,
       },
     });
     return response.data.items; //data로 준다! data안의 items로 주면됨!
@@ -43,11 +55,22 @@ class Youtube {
     // .then((result) => setVideos(result.items)); //비동기로 업데이트!
   }
 
+  async searchVideoDetail(id) {
+    const response = await this.youtube.get("videos", {
+      params: {
+        part: "snippet,statistics",
+        maxResults: 1,
+        id: id,
+      },
+    });
+    return response.data.items;
+  }
+
   async search(query) {
     const response = await this.youtube.get("search", {
       params: {
         part: "snippet",
-        maxResults: 42,
+        maxResults: 20,
         type: "video",
         q: query,
       },

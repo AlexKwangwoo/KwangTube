@@ -1,5 +1,5 @@
 .container {
-  padding: 0.5em;
+  padding: 0.3em;
   border: none;
   text-decoration: none;
 }
@@ -10,7 +10,8 @@
 }
 
 .container.list {
-  width: 50%;
+  width: 100%;
+  padding-right: 5em;
 }
 
 .video {
@@ -18,8 +19,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
   /* 여기를 꺼야함 */
   /* box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53); */
   cursor: pointer;
@@ -41,20 +41,22 @@
 }
 
 .metadata {
-  margin-left: 0.2em;
+  display: flex;
 }
 
 .title {
   margin: 0;
   font-size: 1rem;
   color: white;
+  font-weight: 600;
 }
 .channel {
   margin: 0;
   font-size: 0.8rem;
-  color: white;
+  color: #a7aaa0;
 }
-
-.channel {
-  font-size: 0.6rem;
+.static {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #a7aaa0;
 }
