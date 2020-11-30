@@ -26,8 +26,6 @@ const VideoItem = memo(
       youtube //
         .searchVideoDetail(video.id)
         .then((response) => setSearhedVideo(response[0]));
-      console.log("searhedVideo");
-      console.log(searhedVideo);
     }, [searchOn, youtube, video.id]);
 
     useEffect(() => {
@@ -42,7 +40,7 @@ const VideoItem = memo(
             .then((response) => setChannel(response));
         console.log("서치된거채널변경!");
       }
-    }, [youtube, snippet.channelId, searhedVideo]);
+    }, [youtube, snippet.channelId, searhedVideo, searchOn]);
 
     return searchOn ? (
       searhedVideo && (

@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { formatDate } from "../../utils";
 import styles from "./reply_detail.module.css";
 
@@ -19,6 +19,7 @@ const ReplyDetail = ({ reply, youtube }) => {
           <img
             className={styles.thumbnail}
             src={channel[0].snippet.thumbnails.default.url}
+            alt="nicephoto"
           ></img>
         )}
       </div>

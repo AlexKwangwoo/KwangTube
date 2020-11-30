@@ -81,7 +81,7 @@ function App({ youtube }) {
               </div>
             </section>
           </Route>
-          <Route path="/video_detail/:video">
+          <Route exact path="/video_detail/:video">
             <SearchHeader onSearch={search} />
             <section className={styles.content}>
               {selectedVideo && channel && replies && (

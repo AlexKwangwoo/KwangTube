@@ -2,7 +2,6 @@ import React, { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { trimText, formatDate } from "../../utils";
 import styles from "./video_itemS.module.css";
-import VideoItemSDetail from "./video_itemS_detail.jsx";
 
 const VideoItemS = memo(
   ({
@@ -19,7 +18,7 @@ const VideoItemS = memo(
     //     .channel(snippet.channelId);
     // setChannel(response);
     const [searhedVideo, setSearhedVideo] = useState(null);
-
+    console.log(channel);
     useEffect(() => {
       youtube //
         .searchVideoDetail(video.id)

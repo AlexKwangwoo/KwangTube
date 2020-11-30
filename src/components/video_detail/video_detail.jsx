@@ -47,6 +47,7 @@ const VideoDetail = ({
           <img
             className={styles.thumbnail}
             src={channel[0].snippet.thumbnails.default.url}
+            alt="good"
           ></img>
           <div className={styles.channelInfoRight}>
             <div className={styles.channelTitle}>{snippet.channelTitle}</div>
